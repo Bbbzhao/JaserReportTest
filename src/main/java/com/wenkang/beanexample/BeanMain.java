@@ -24,13 +24,13 @@ public class BeanMain
     public static void main(String[] args) {
         MessageDAO messageDAO = new MessageDAO();
         List<Message> messageList = messageDAO.queryMessageList();
-        for(Message m: messageList)
-        {
-            System.out.println("username:"+m.getUsername()+" outgo:"+m.getOutgo()+" price:"+m.getPrice());
-        }
-/*
+//        for(Message m: messageList)
+//        {
+//            System.out.println("username:"+m.getUsername()+" outgo:"+m.getOutgo()+" price:"+m.getPrice());
+//        }
+
         Map map = new HashMap();
-        String filePath = "./src/com/usingbean/resource/finalbean.jasper";
+        String filePath = "./src/resource/jasper/BeanReport.jasper";
         JRBeanCollectionDataSource beanDataSource =
                 new JRBeanCollectionDataSource(messageList);
         JasperPrint jasperPrint = null;
@@ -41,8 +41,9 @@ public class BeanMain
             e.printStackTrace();
             System.out.println("fillReport错误");
         }
+
         //输出HTML
-        String htmlFilePath="./src/com/usingbean/srcout/finalbean.html";
+        String htmlFilePath="./src/resource/resout/beanreport.html";
         try {
             JasperExportManager.exportReportToHtmlFile(jasperPrint,htmlFilePath);
         } catch (JRException e) {
@@ -50,7 +51,7 @@ public class BeanMain
         }
 
         //输出pdf
-        String pdfFilePath="./src/com/usingbean/srcout/finalbean.pdf";
+        String pdfFilePath="./src/resource/resout/beanreport.pdf";
         try {
             JasperExportManager.exportReportToPdfFile(jasperPrint,pdfFilePath);
         } catch (JRException e) {
@@ -58,7 +59,7 @@ public class BeanMain
         }
 
         //输出Excel
-        String xlsFilePath="./src/com/usingbean/srcout/finalbean.xls";
+        String xlsFilePath="./src/resource/resout/beanreport.xls";
         JRXlsxExporter exporter = new JRXlsxExporter();
         exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
         File xlsOutputFile = new File(xlsFilePath);
@@ -70,7 +71,7 @@ public class BeanMain
         }
 
         //输出word
-        String docxFilePath="./src/com/usingbean/srcout/finalbean.docx";
+        String docxFilePath="./src/resource/resout/beanreport.docx";
         JRDocxExporter jrDocxExporter = new JRDocxExporter();
         jrDocxExporter.setExporterInput(new SimpleExporterInput(jasperPrint));
         File docxOutputFile = new File(docxFilePath);
@@ -79,6 +80,6 @@ public class BeanMain
             jrDocxExporter.exportReport();
         } catch (JRException e) {
             System.out.println("docx导出失败");
-        }*/
+        }
     }
 }
