@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SimfangFront_-zh_CN';
+	src: local('☺'),
+		url('仿宋_-zh_CN.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
