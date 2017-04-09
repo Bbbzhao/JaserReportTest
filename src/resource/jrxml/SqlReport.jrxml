@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-04-09T10:47:03 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SqlReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7f939ead-f9b8-432c-bc4f-263f9f47c947">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BeanAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT * FROM test.reportable]]>
+	</queryString>
+	<field name="outgo" class="java.lang.String">
+		<fieldDescription><![CDATA[outgo]]></fieldDescription>
+	</field>
+	<field name="price" class="java.lang.Double">
+		<fieldDescription><![CDATA[price]]></fieldDescription>
+	</field>
+	<field name="remark" class="java.lang.String">
+		<fieldDescription><![CDATA[remark]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="time" class="java.util.Date">
+		<fieldDescription><![CDATA[time]]></fieldDescription>
+	</field>
+	<field name="username" class="java.lang.String">
+		<fieldDescription><![CDATA[username]]></fieldDescription>
+	</field>
+	<variable name="total" class="java.lang.Double" resetType="Group" resetGroup="Group_by_User" incrementType="Group" incrementGroup="Group_by_User">
+		<variableExpression><![CDATA[new java.lang.Double($V{total}+$F{price})]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.lang.Double("0.00")]]></initialValueExpression>
+	</variable>
+	<group name="Group_by_User">
+		<groupExpression><![CDATA[$F{username}]]></groupExpression>
+		<groupHeader>
+			<band height="70">
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<staticText>
+					<reportElement x="152" y="0" width="250" height="30" uuid="f79afab9-9e74-4b25-9650-360e4b2034be"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="仿宋" size="16" isBold="true"/>
+					</textElement>
+					<text><![CDATA[个人支出报表]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="0" y="30" width="554" height="20" uuid="6d61f32d-1297-4014-b598-039a8c331e82">
+						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="40" height="20" uuid="0c47d3c4-38af-4bd3-9195-1d0479d877e5"/>
+						<textElement textAlignment="Center">
+							<font fontName="仿宋"/>
+						</textElement>
+						<text><![CDATA[用户：]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="453" y="0" width="99" height="20" uuid="5a927785-3f09-43ca-8d63-e3288acfb7ac">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement>
+							<font fontName="仿宋"/>
+						</textElement>
+						<text><![CDATA[金额单位：元]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="40" y="0" width="98" height="20" uuid="2da3ffde-a5c1-4334-b676-023cf941257a"/>
+						<textElement>
+							<font fontName="仿宋"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{username}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="0" y="50" width="554" height="20" uuid="0bbeaeb5-f8ca-43d3-a755-d98cd79ef365">
+						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
+					</reportElement>
+					<staticText>
+						<reportElement x="0" y="0" width="138" height="20" uuid="b97d9b10-f324-43d1-af73-14188d2695d7"/>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Left">
+							<font fontName="仿宋"/>
+						</textElement>
+						<text><![CDATA[支出项目]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="138" y="0" width="138" height="20" uuid="e38f7d8d-3b91-42de-a538-ec03b403ca67"/>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement>
+							<font fontName="仿宋"/>
+						</textElement>
+						<text><![CDATA[支出时间]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="276" y="0" width="138" height="20" uuid="be54ebd8-0947-44b4-b18e-0a7ac2596f82"/>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement>
+							<font fontName="仿宋"/>
+						</textElement>
+						<text><![CDATA[支出金额]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="414" y="0" width="138" height="20" uuid="0f60d457-eaeb-4363-aca5-43b46c3e5319"/>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement>
+							<font fontName="仿宋"/>
+						</textElement>
+						<text><![CDATA[备注]]></text>
+					</staticText>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="38">
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<frame>
+					<reportElement x="0" y="0" width="552" height="20" uuid="e697616d-3fe5-4bed-8c71-6462cd6bbcdf"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="381" y="0" width="72" height="20" uuid="39a3ed3a-4dfb-47fb-a261-14d1940fec12"/>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="仿宋"/>
+						</textElement>
+						<text><![CDATA[总金额：]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="453" y="0" width="99" height="20" uuid="447b49ab-324d-4b9f-9174-5793907756b6"/>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement>
+							<font fontName="仿宋"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<break>
+					<reportElement x="0" y="28" width="553" height="1" uuid="b8553cae-79f9-4e14-98ee-39e041451d7a"/>
+				</break>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<frame>
+				<reportElement x="0" y="0" width="554" height="20" uuid="9d34ef59-c84b-4e81-bc30-92fc9e73862b">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
+				</reportElement>
+				<textField>
+					<reportElement x="0" y="0" width="138" height="20" uuid="f09e634f-4579-4462-b842-58438da12c6a"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left">
+						<font fontName="仿宋"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{outgo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="138" y="0" width="138" height="20" uuid="f0fd740f-38b2-4892-985a-34cb52800c07"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement>
+						<font fontName="仿宋"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{time}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="276" y="0" width="138" height="20" uuid="aca976af-9a27-4d5c-bbd2-cd4100b25653"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement>
+						<font fontName="仿宋"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="414" y="0" width="138" height="20" uuid="0204a038-bc5c-4275-8057-add547d98179"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement>
+						<font fontName="仿宋"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{remark}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>
