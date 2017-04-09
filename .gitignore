@@ -1,0 +1,9 @@
+tignore for maven
+target/## .gitignore
+
+# .gitignore for maven
+target/
+
+#IDE support file
+.idea
+jaspertest.iml
