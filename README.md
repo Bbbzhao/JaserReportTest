@@ -1,4 +1,3 @@
-serReportTest
 jasperreport的报表练习（踩坑），教程很老很少，但是开源啊开源省钱啊！
 
 使用JaserSoft Studio编辑报表模板，mysql数据库，idea。
